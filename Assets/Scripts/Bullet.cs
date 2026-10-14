@@ -2,27 +2,37 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public float damage = 20f; // 총알이 주는 데미지
-    public float lifeTime = 3f;  // 총알이 사라지는 시간
+    public float speed = 20f;
+    public float damage = 1f;
+    public string targetTag = "Enemy";
+    public float destroyTime = 3f;
 
     void Start()
     {
-        // 일정 시간이 지나면 총알이 자동으로 파괴됨
-        Destroy(gameObject, lifeTime);
+        // 3초 뒤 자동 파괴
+        Destroy(gameObject, destroyTime);
     }
 
-    void OnCollisionEnter(Collision collision)
+    void Update()
     {
-        // 부딪힌 오브젝트에 Health 스크립트가 붙어있는지 확인
-        Health targetHealth = collision.gameObject.GetComponent<Health>();
+        // 앞으로 이동
+        transform.Translate(Vector3.forward * speed * Time.deltaTime);
+    }
 
-        if (targetHealth != null)
+    private void OnTriggerEnter(Collider other)
+    {
+        // 맞은 대상의 태그가 Enemy인지 확인
+        if (other.CompareTag(targetTag))
         {
-            // 체력을 깎는 함수 호출
-            targetHealth.TakeDamage(damage);
-        }
+            // 대상의 Health 스크립트를 가져와서 데미지 주기
+            Health health = other.GetComponent<Health>();
+            if (health != null)
+            {
+                health.TakeDamage(damage);
+            }
 
-        // 무엇이든 부딪히면 총알 삭제
-        Destroy(gameObject);
+            // 총알 자신 삭제
+            Destroy(gameObject);
+        }
     }
 }

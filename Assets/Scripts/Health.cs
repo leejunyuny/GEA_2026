@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    public float maxHealth = 100f;
+    public float maxHealth = 3f;
     private float currentHealth;
 
     void Start()
@@ -10,12 +10,11 @@ public class Health : MonoBehaviour
         currentHealth = maxHealth;
     }
 
-    public void TakeDamage(float amount)
+    public void TakeDamage(float damage)
     {
-        currentHealth -= amount;
-        Debug.Log(gameObject.name + " Current Health: " + currentHealth);
+        currentHealth -= damage;
 
-        if (currentHealth <= 0)
+        if (currentHealth <= 0f)
         {
             Die();
         }
@@ -23,8 +22,6 @@ public class Health : MonoBehaviour
 
     void Die()
     {
-        Debug.Log(gameObject.name + " Died!");
-        // 추후 사망 시 처리할 내용이 들어갈 자리입니다.
         Destroy(gameObject);
     }
 }
