@@ -319,6 +319,8 @@ GameObject:
   - component: {fileID: 1815292441}
   - component: {fileID: 1815292440}
   - component: {fileID: 1815292439}
+  - component: {fileID: 1815292443}
+  - component: {fileID: 1815292442}
   m_Layer: 0
   m_Name: Tester
   m_TagString: Untagged
@@ -377,6 +379,38 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1815292442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1815292438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77d5c737e591f6547be9dc5db62b854c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NewMonoBehaviourScript
+  attack: 0
+  defense: 0
+  isCritical: 0
+  targetIsBoss: 0
+--- !u!114 &1815292443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1815292438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77d5c737e591f6547be9dc5db62b854c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NewMonoBehaviourScript
+  attack: 0
+  defense: 0
+  isCritical: 0
+  targetIsBoss: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
